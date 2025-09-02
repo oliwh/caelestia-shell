@@ -3,10 +3,13 @@ cmake_minimum_required(VERSION 3.19)
 if(NOT DEFINED VERSION)
     execute_process(COMMAND git describe --tags --abbrev=0
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
-        OUTPUT_VARIABLE VERSION
+	OUTPUT_VARIABLE VERSION
         OUTPUT_STRIP_TRAILING_WHITESPACE
     )
 
+    if("${VERSION}" STREQUAL "")
+	set(VERSION "0.0")
+    endif()
     if("${VERSION}" STREQUAL "")
         message(FATAL_ERROR "VERSION is not set and failed to get from git")
     endif()

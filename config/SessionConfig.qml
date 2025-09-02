@@ -9,6 +9,7 @@ JsonObject {
     property Sizes sizes: Sizes {}
 
     component Commands: JsonObject {
+        property list<string> lock: ["swaylock"]
         property list<string> logout: ["loginctl", "terminate-user", ""]
         property list<string> shutdown: ["systemctl", "poweroff"]
         property list<string> hibernate: ["systemctl", "hibernate"]

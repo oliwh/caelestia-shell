@@ -20,11 +20,21 @@ Column {
     spacing: Appearance.spacing.large
 
     SessionButton {
+        id: lock
+
+        icon: "lock"
+        command: Config.session.commands.lock
+
+        KeyNavigation.down: logout
+    }
+
+    SessionButton {
         id: logout
 
         icon: "logout"
         command: Config.session.commands.logout
 
+        KeyNavigation.up: lock
         KeyNavigation.down: shutdown
 
         Connections {
@@ -51,19 +61,7 @@ Column {
         KeyNavigation.up: logout
         KeyNavigation.down: hibernate
     }
-
-    AnimatedImage {
-        width: Config.session.sizes.button
-        height: Config.session.sizes.button
-        sourceSize.width: width
-        sourceSize.height: height
-
-        playing: visible
-        asynchronous: true
-        speed: 0.7
-        source: Paths.expandTilde(Config.paths.sessionGif)
-    }
-
+    
     SessionButton {
         id: hibernate
 
