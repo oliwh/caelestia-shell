@@ -1,3 +1,10 @@
+# My config of caelestia shell
+My own customisations to caelestia-dots' quickshell configuration
+- added a lock function to the power menu on the right
+- got rid of the gifs
+
+now for the rest of the readme which I didn't write myself (blah blah blah)
+
 <h1 align=center>caelestia-shell</h1>
 
 <div align=center>
