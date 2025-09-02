@@ -26,6 +26,20 @@ Column {
         command: Config.session.commands.lock
 
         KeyNavigation.down: logout
+
+        Connections {
+            target: root.visibilities
+
+            function onSessionChanged(): void {
+                if (root.visibilities.session)
+                    lock.focus = true;
+            }
+
+            function onLauncherChanged(): void {
+                if (root.visibilities.session && !root.visibilities.launcher)
+                    lock.focus = true;
+            }
+        }
     }
 
     SessionButton {
@@ -36,20 +50,6 @@ Column {
 
         KeyNavigation.up: lock
         KeyNavigation.down: shutdown
-
-        Connections {
-            target: root.visibilities
-
-            function onSessionChanged(): void {
-                if (root.visibilities.session)
-                    logout.focus = true;
-            }
-
-            function onLauncherChanged(): void {
-                if (root.visibilities.session && !root.visibilities.launcher)
-                    logout.focus = true;
-            }
-        }
     }
 
     SessionButton {
